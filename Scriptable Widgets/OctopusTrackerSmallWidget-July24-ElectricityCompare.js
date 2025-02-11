@@ -6,7 +6,7 @@ const widget = new ListWidget(); // Initialize a new list widget
 widget.backgroundColor = new Color("#100030"); // Set the background color of the widget
 
 widget.addSpacer(4); // Add space at the top
-const header = widget.addText("Tracker July 24 v1"); // Add header text
+const header = widget.addText("Tracker Oct 24 v1"); // Add header text
 header.font = Font.boldSystemFont(10); // Set the font and size of the header
 header.textColor = Color.white(); // Set the color of the header text
 widget.addSpacer(4); // Add space below the header
@@ -31,9 +31,10 @@ async function fetchTariffData(tariffType) {
 
     var productCode;
     if (tariffType === "tracker") {
-        productCode = "SILVER-24-07-01"; // Yellow for electricity
+        productCode = "SILVER-24-10-01"; // Yellow for electricity
     } else if (tariffType === "flex") {
-        productCode = "VAR-22-11-01"; // Fiery orange for gas
+//         productCode = "VAR-22-11-01"; // Fiery orange for gas
+        productCode = "OE-FIX-12M-24-11-22";
     }
     
     const baseUrl = `https://api.octopus.energy/v1/products/${productCode}/`;
@@ -128,7 +129,7 @@ async function displayTariffData(tariffType, symbolName) {
 // Display tariff information for electricity and gas
 await displayTariffData("tracker", "bolt.fill");
 widget.addSpacer(7); // Add final spacer for layout
-let flexText = widget.addText("Flexible")
+let flexText = widget.addText("Nov Fix v2")
 widget.addSpacer(1); // Add space below the header
 flexText.textColor = Color.white(); // Set the color of the header text
 flexText.font = Font.boldSystemFont(10);
